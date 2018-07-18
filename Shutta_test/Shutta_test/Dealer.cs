@@ -21,9 +21,16 @@ namespace Shutta_test
                     Card card = new Card();
                     card.number = i + 1;
                     card.isKwang = false;
+
+                    // 위의 kwangNumbers의 광땡을 포함하고 있는 수랑 card.number의 수랑 일치하면 true로 광이 맞다는 표현.
+                    if (kwangNumbers.Contains(card.number))
+                        card.isKwang = true;
+
+                    cards.Add(card);
                 }
             }
-        }
+            cards = cards.OrderBy(x => Guid.NewGuid()).ToList();
+        }// end of shuffleCard().
 
         // 카드 1장씩 나눠주기
     }
